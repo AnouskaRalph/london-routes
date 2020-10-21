@@ -5,4 +5,4 @@ class London_RouteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = London_Route
-        fields = ('id', 'start_end_point', 'miles', 'difficulty', 'image')
+        fields = ('__all__')
