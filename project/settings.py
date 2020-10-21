@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'jwt_auth',
     'london_routes',
 ]
 
@@ -75,12 +76,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+DATABASES = {  # added this to use postgres as the databse instead of the default sqlite. do this before running the initail migrations or you will need to do it again
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'london_routes',
+        'HOST': 'localhost',
+        'PORT': 5432
     }
 }
+
 
 
 # Password validation
@@ -100,6 +104,17 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+AUTH_USER_MODEL = 'jwt_auth.User'
+
+REST_FRAMEWORK = {  
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'jwt_auth.authentication.JWTAuthentication'
+    ],
+}
 
 
 # Internationalization
