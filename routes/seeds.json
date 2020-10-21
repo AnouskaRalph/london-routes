@@ -1,0 +1,13 @@
+[
+{
+  "model": "routes.route",
+  "pk": 1,
+  "fields": {
+    "start_end_point": "w",
+    "miles": 9,
+    "difficulty": "77",
+    "image": "7",
+    "stops": "SOME STRING"
+  }
+}
+]

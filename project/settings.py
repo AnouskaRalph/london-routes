@@ -38,8 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'jwt_auth',
-    'london_routes',
+    'routes',
+    'jwt_auth', 
+    'comments',   
+
 
 ]
 
@@ -80,7 +82,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {  # added this to use postgres as the databse instead of the default sqlite. do this before running the initail migrations or you will need to do it again
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'london_routes',
+        'NAME': 'routes',
         'HOST': 'localhost',
         'PORT': 5432
     }
