@@ -61,17 +61,17 @@ class RouteDetailView(APIView):
         routes_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    class RouteLikeView(RouteDetailView):
+    # class RouteLikeView(RouteDetailView):
 
-        permisson_classes = (IsAuthenticated, )
+    #     permisson_classes = (IsAuthenticated, )
 
-    def post(self, request, pk):
-        routes_to_like = self.get_route(pk=pk)
-        routes_to_like.liked_by.add(request.user.id)
-        routes_to_like.save()
-        return Response(
-            {'Message': f'Like Added to route {pk}'},
-            status=status.HTTP_202_ACCEPTED
-        )
+    # def post(self, request, pk):
+    #     routes_to_like = self.get_route(pk=pk)
+    #     routes_to_like.liked_by.add(request.user.id)
+    #     routes_to_like.save()
+    #     return Response(
+    #         {'Message': f'Like Added to route {pk}'},
+    #         status=status.HTTP_202_ACCEPTED
+    #     )
 
 

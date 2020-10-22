@@ -7,4 +7,4 @@ class PopulatedUserSerializer(UserSerializer):
 
     created_routes = RouteSerializer(many=True)
     posted_comments = CommentSerializer(many=True)
-    liked_routes = RouteSerializer(many=True)
+    # liked_routes = RouteSerializer(many=True)

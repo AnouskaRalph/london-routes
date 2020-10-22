@@ -7,5 +7,5 @@ class PopulatedRouteSerializer(RouteSerializer):
 
     comments = PopulatedCommentSerializer(many=True)
     owner = NestedUserSerializer()
-    liked_by = NestedUserSerializer(many=True)
+    # liked_by = NestedUserSerializer(many=True)
 
