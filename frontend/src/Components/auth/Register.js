@@ -38,7 +38,6 @@ class Register extends React.Component {
       }
     } catch (err) {
       console.log(err)
-      console.log('>>>>>getting here')
     }
   }
 

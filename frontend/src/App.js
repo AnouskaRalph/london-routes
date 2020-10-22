@@ -5,6 +5,7 @@ import Home from './Components/common/Home'
 import Navbar from './Components/common/Navbar'
 import Register from './Components/auth/Register'
 import Login from './Components/auth/Login'
+import RouteIndex from './Components/routes/RouteIndex'
 
 class App extends React.Component {
   async componentDidMount() {
@@ -25,6 +26,7 @@ class App extends React.Component {
           <Route exact path='/' component={Home} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/routeindex' component={RouteIndex} />
         </Switch>
       </BrowserRouter>
 
