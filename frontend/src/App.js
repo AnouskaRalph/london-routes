@@ -1,4 +1,8 @@
 import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
+import Home from './Components/common/Home'
+import Register from './Components/auth/Register'
 
 class App extends React.Component {
   async componentDidMount() {
@@ -13,7 +17,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>hello</h1>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/register' component={Register} />
+        </Switch>
+      </BrowserRouter>
+
     )
   }
 }
