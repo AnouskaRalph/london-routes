@@ -10,8 +10,9 @@ class Register extends React.Component {
     formData: {
       username: '',
       email: '',
+      profile_image: '',
       password: '',
-      passwordConfirmation: ''
+      password_confirmation: ''
     },
   }
 
@@ -43,7 +44,7 @@ class Register extends React.Component {
 
   render() {
 
-    const { username, email, password, passwordConfirmation } = this.state.formData
+    const { username, email, profile_image, password, password_confirmation } = this.state.formData
 
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
@@ -55,8 +56,8 @@ class Register extends React.Component {
           <Header as='h2' color='black' textAlign='center'>
             <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShlvg6mJvj6VZKv46Ultcibd4Dah5vRo2LXA&usqp=CAU' alt='Woman on bike' /> Register
       </Header>
-          <Form onSubmit={this.handleSubmit} size='large'>
-            <Segment stacked>
+          <Form inverted onSubmit={this.handleSubmit} size='large'>
+            <Segment inverted stacked>
               <Form.Input fluid icon='user' iconPosition='left'
                 placeholder='Username'
                 onChange={this.handleChange}
@@ -69,8 +70,16 @@ class Register extends React.Component {
                 onChange={this.handleChange}
                 value={email}
                 name='email'
+              />
+                <Form.Input fluid icon='photo'
+                iconPosition='left'
+                placeholder='Photo'
+                onChange={this.handleChange}
+                value={profile_image}
+                name='profile_image'
 
               />
+
               <Form.Input
                 fluid
                 icon='lock'
@@ -88,8 +97,8 @@ class Register extends React.Component {
                 placeholder='Password Confirmation'
                 type='password'
                 onChange={this.handleChange}
-                value={passwordConfirmation}
-                name='passwordConfirmation'
+                value={password_confirmation}
+                name='password_confirmation'
               />
 
               <Button color='black' fluid size='large'>
