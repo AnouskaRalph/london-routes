@@ -1,6 +1,11 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
   
+const options = [
+  { key: 'tooting', text: 'Tooting', value: 'tooting' },
+  { key: 'brixton', text: 'Brixton', value: 'brixton' },
+  { key: 'tulse hill', text: 'Tulse Hill', value: 'tulse hill' },
+]
   
   class RouteIndex extends React.Component {
     state = {}
@@ -32,6 +37,14 @@ import { Form } from 'semantic-ui-react'
               onChange={this.handleChange}
             />
           </Form.Group>
+          <Form.Group widths='equal'>
+          <Form.Select
+            fluid
+            label='Borough'
+            options={options}
+            placeholder='Tulse Hill'
+          />
+        </Form.Group>
         </Form>
       )
     }
