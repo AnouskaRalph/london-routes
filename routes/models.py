@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Route(models.Model):
     start_end_point = models.CharField(max_length=50, unique=True)
     miles = models.PositiveIntegerField(unique=False)

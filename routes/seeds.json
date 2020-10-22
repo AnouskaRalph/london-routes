@@ -3,11 +3,72 @@
   "model": "routes.route",
   "pk": 1,
   "fields": {
-    "start_end_point": "w",
-    "miles": 9,
-    "difficulty": "77",
-    "image": "7",
-    "stops": "SOME STRING"
+    "start_end_point": "route1",
+    "miles": 30,
+    "difficulty": "easy",
+    "image": "testing",
+    "stops": "three stops",
+    "owner": 1
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 2,
+  "fields": {
+    "start_end_point": "route2",
+    "miles": 30,
+    "difficulty": "easy",
+    "image": "testing",
+    "stops": "three stops",
+    "owner": 1
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 3,
+  "fields": {
+    "start_end_point": "3",
+    "miles": 30,
+    "difficulty": "easy",
+    "image": "testing",
+    "stops": "three stops",
+    "owner": 1
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 4,
+  "fields": {
+    "start_end_point": "4",
+    "miles": 30,
+    "difficulty": "easy",
+    "image": "testing",
+    "stops": "three stops",
+    "owner": 1
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 5,
+  "fields": {
+    "start_end_point": "5",
+    "miles": 30,
+    "difficulty": "easy",
+    "image": "testing",
+    "stops": "three stops",
+    "owner": 1
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 6,
+  "fields": {
+    "start_end_point": "6",
+    "miles": 30,
+    "difficulty": "easy",
+    "image": "testing",
+    "stops": "three stops",
+    "owner": 1
   }
 }
 ]
