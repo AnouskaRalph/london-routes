@@ -1,5 +1,7 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import { getRoutes } from '../../lib/api'
+import RouteShow from '../routes/RouteShow'
   
 const options = [
   { key: 'tooting', text: 'Tooting', value: 'tooting' },
@@ -8,13 +10,29 @@ const options = [
 ]
   
   class RouteIndex extends React.Component {
-    state = {}
+
+    state = {
+      routes: null
+    }
+    async componentDidMount() {
+      const response = await getRoutes()
+        this.setState({
+          routes: response.data
+        })
+        console.log('>>>>NEW DATA', response.data)
+
+  }
   
     handleChange = (e, { value }) => this.setState({ value })
   
     render() {
       const { value } = this.state
+      if (!this.state.routes) return null
       return (
+        <>
+        <div>
+          {this.state.routes.map(route => (<RouteShow key={route.id}  {...route}/>))}
+        </div>
         <Form>
           <Form.Group inline>
             <label>Difficulty</label>
@@ -46,6 +64,7 @@ const options = [
           />
         </Form.Group>
         </Form>
+        </>
       )
     }
   }
