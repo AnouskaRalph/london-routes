@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Route(models.Model):
-    start_end_point = models.CharField(max_length=50, unique=True)
+    borough = models.CharField(max_length=50, unique=True)
     miles = models.PositiveIntegerField(unique=False)
     difficulty = models.CharField(max_length=50)
     image = models.CharField(max_length=200)

@@ -40,9 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'routes',
     'jwt_auth', 
-    'comments',   
-
-
+    'comments',
+    'directions',
 ]
 
 MIDDLEWARE = [
