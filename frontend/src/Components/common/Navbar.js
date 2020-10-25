@@ -7,9 +7,10 @@ import { getUserProfile } from '../../lib/api'
 
 class Navbar extends React.Component {
 
-  state = { 
-    activeItem: '', 
-    isUser: false }
+  state = {
+    activeItem: '',
+    isUser: false
+  }
 
   authenticated() {
     return isAuthenticated()
@@ -17,7 +18,7 @@ class Navbar extends React.Component {
 
   async componentDidMount() {
     try {
-      if (this.authenticated()){
+      if (this.authenticated()) {
         const res = await getUserProfile()
         this.setState({
           isUser: res.data.isUser
@@ -30,7 +31,7 @@ class Navbar extends React.Component {
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  handleLogoutClick = (e, {name}) => {
+  handleLogoutClick = (e, { name }) => {
     logout()
     this.setState({
       activeItem: name
@@ -51,13 +52,23 @@ class Navbar extends React.Component {
             as={Link}
             to='/'
           />
-          <Menu.Item
-            name='register'
-            active={activeItem === 'register'}
+            <Menu.Item
+            name='routes'
+            active={activeItem === 'routes'}
             onClick={this.handleItemClick}
             as={Link}
-            to='/register'
+            to='/routeindex'
           />
+          {!isAuthenticated() &&
+            <Menu.Item
+              name='register'
+              active={activeItem === 'register'}
+              onClick={this.handleItemClick}
+              as={Link}
+              to='/register'
+            />
+          }
+      {!isAuthenticated() &&
           <Menu.Item
             name='login'
             active={activeItem === 'login'}
@@ -65,13 +76,17 @@ class Navbar extends React.Component {
             as={Link}
             to={'/login'}
           />
-          <Menu.Item
-            name='profile'
-            active={activeItem === 'profile'}
-            onClick={this.handleItemClick}
-            as={Link}
-            to={'/userprofile'}
-          />
+          }
+          {checkIsUser() && isAuthenticated() &&
+            <Menu.Item
+              name='profile'
+              active={activeItem === 'profile'}
+              onClick={this.handleItemClick}
+              as={Link}
+              to={'/userprofile'}
+            />
+          }
+      {isAuthenticated() &&
           <Menu.Item
             name='logout'
             active={activeItem === 'logout'}
@@ -79,6 +94,7 @@ class Navbar extends React.Component {
             as={Link}
             to={'/'}
           />
+          }
         </Menu>
       </Segment>
     )

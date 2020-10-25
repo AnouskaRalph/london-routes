@@ -1,6 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Image, Button, Popup, Icon } from 'semantic-ui-react'
 
 
 const RouteShow = (props) => {
@@ -20,6 +20,12 @@ const RouteShow = (props) => {
           {miles}
           {difficulty}
         </Card.Description>
+        
+        <Popup
+      trigger={<Button icon='add' />}
+      content='To save route please register'
+      inverted
+    />
       </Card.Content>
     </Card>
 
