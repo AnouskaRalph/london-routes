@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
-import { getRoutes } from '../../lib/api'
+import { getRoutes, getRoutesFiltered } from '../../lib/api'
 import RouteShow from '../routes/RouteShow'
   
 const options = [
@@ -12,27 +12,41 @@ const options = [
   class RouteIndex extends React.Component {
 
     state = {
-      routes: null
+      routes: null, 
+      difficulty: '', 
+      borough: ''
     }
     async componentDidMount() {
       const response = await getRoutes()
         this.setState({
-          routes: response.data
+          routes: response.data,
+          borough: response.data.borough
         })
-        console.log('>>>>NEW DATA', response.data)
-
-  }
+        console.log('data', response)
+        console.log('>>>>>', response.borough)
+    }
   
-    handleChange = (e, { value }) => this.setState({ value })
+  // handleChange = (e) => {
+  //   const radioValue = { value } 
+  //     this.setState({ 
+  //       radioValue })
+  //     }
+
+      // handleChange = (e) => {
+      //   const radioValue = { ...this.state.options[e.target.value] } 
+      //     this.setState({ 
+      //       radioValue })
+      //     }
+  handleChange = (e, { value }) => this.setState({ value })
   
     render() {
       const { value } = this.state
       if (!this.state.routes) return null
       return (
-        <>
-        <div>
-          {this.state.routes.map(route => (<RouteShow key={route.id}  {...route}/>))}
-        </div>
+        <>    
+
+      {this.state.routes.map(route => (<RouteShow key={route.id}  {...route}/>))}
+
         <Form>
           <Form.Group inline>
             <label>Difficulty</label>
@@ -55,12 +69,13 @@ const options = [
               onChange={this.handleChange}
             />
           </Form.Group>
+
           <Form.Group widths='equal'>
           <Form.Select
             fluid
-            label='Borough'
+            label='Area'
             options={options}
-            placeholder='Tulse Hill'
+            placeholder='Area'
           />
         </Form.Group>
         </Form>

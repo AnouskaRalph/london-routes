@@ -29,17 +29,11 @@ handleChange = (e) => {
 handleSubmit = async (e) => {
   e.preventDefault()
   try {
-    console.log('>>>>>>got here')
     const response = await loginUser(this.state.formData)
-    console.log('>>>formdata', this.state.formData)
-
     this.setState({
-      redirect: '/home'
+      redirect: '/userprofile'
     })
-
     setToken(response.data.token)
-
-
   } catch (err) {
     console.log('>>>>error', err)
   } 
