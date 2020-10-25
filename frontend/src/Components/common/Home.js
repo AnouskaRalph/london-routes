@@ -1,8 +1,11 @@
 import React from 'react'
+import { Segment, Grid, Header, Button } from 'semantic-ui-react'
 
 function Home() {
   return (
-    <h1>Home page</h1>
+<Segment style={{ padding: '8em 0em' }} vertical id='home-page'>
+
+      </Segment>
   )
 }
 

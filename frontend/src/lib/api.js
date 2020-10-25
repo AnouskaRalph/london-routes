@@ -22,7 +22,21 @@ function withHeaders(){
   }
 }
 
+// USER & FAVORITES
+
 export const getUserProfile = () => {
   return axios.get('/api/auth/profile/', withHeaders())
 }
+
+
+export const addFavorites = (route) => {
+  console.log('ROUTEEE FAV>>', route)
+  return axios.post('/api/favorites', {route}, withHeaders())
+}
+
+export const removeFavorites = (_id) => {
+  console.log('ID>>>>>>>', _id)
+  return axios.put(`api/profile/${_id}`, null, withHeaders())
+}
+
 

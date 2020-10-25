@@ -1,19 +1,16 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import { Card, Image, Button, Popup } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
 
-const RouteShow = (props) => {
-  
+
+const RouteShow = (props) => { 
+
   const { image, stops, miles, borough, difficulty } = props
 
   return (
   <Card>
     <Image src={image} wrapped ui={false} />
     <Card.Content>
-      <Link t='/routedirections'>
       <Card.Header>{borough}</Card.Header>
-      </Link>
       <Card.Meta>
         <span className='date'>{stops}</span>
         </Card.Meta>
@@ -21,7 +18,6 @@ const RouteShow = (props) => {
           {miles}
           {difficulty}
         </Card.Description>
-
         <Popup
       trigger={<Button icon='add' />}
       content='Save route'

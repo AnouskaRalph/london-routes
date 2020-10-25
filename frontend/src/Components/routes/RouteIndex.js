@@ -67,7 +67,7 @@ class RouteIndex extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-
+              
               <Form.Group widths='equal'>
                 <Form.Select
                   fluid
@@ -80,7 +80,6 @@ class RouteIndex extends React.Component {
             {this.state.routes.map(route => (<RouteShow key={route.id}  {...route} />))}
           </Container>
         </div>
-
       </>
     )
   }
