@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 
-import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Segment, Message } from 'semantic-ui-react'
 
 import { loginUser } from '../../lib/api'
 import { setToken } from '../../lib/auth'
@@ -13,7 +13,8 @@ class Login extends React.Component {
     formData: {
       email: '',
       password: ''
-    }
+    }, 
+    formErrorHandler: false
   }
 
 handleChange = (e) => {
@@ -23,6 +24,7 @@ handleChange = (e) => {
   }
   this.setState({
     formData,
+    formErrorHandler: false 
   })
 }
 
@@ -35,7 +37,7 @@ handleSubmit = async (e) => {
     })
     setToken(response.data.token)
   } catch (err) {
-    console.log('>>>>error', err)
+    this.setState({ formErrorHandler: true })
   } 
 }
   render() {
@@ -51,7 +53,10 @@ handleSubmit = async (e) => {
       <Header as='h2' color='black' textAlign='center'>
         <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShlvg6mJvj6VZKv46Ultcibd4Dah5vRo2LXA&usqp=CAU' /> Log-in to your account
       </Header>
-      <Form onSubmit={this.handleSubmit} size='large'>
+      <Form size='large' onSubmit={this.handleSubmit} 
+      error={this.state.formErrorHandler} > {this.state.formErrorHandler ? (
+            <Message error header='Error' pointing= 'below' content='Invalid details' />
+            ) : null }
         <Segment stacked>
           <Form.Input 
           fluid icon='user' 

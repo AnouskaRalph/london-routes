@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom'
 
 import { registerUser } from '../../lib/api'
@@ -14,16 +14,16 @@ class Register extends React.Component {
       password: '',
       password_confirmation: ''
     },
+    formErrorHandler: false,
+    redirect: null
   }
 
   handleChange = (e) => {
-    // console.log(e.target.value)
-    // console.log('>>>>>gets here')
     const formData = {
       ...this.state.formData,
       [e.target.name]: e.target.value
     }
-    this.setState({ formData })
+    this.setState({ formData, formErrorHandler: false })
   }
 
   handleSubmit = async (e) => {
@@ -37,12 +37,11 @@ class Register extends React.Component {
         })
       }
     } catch (err) {
-      console.log(err)
+      this.setState({ formErrorHandler: true })
     }
   }
 
   render() {
-
     const { username, email, profile_image, password, password_confirmation } = this.state.formData
 
     if (this.state.redirect) {
@@ -55,7 +54,9 @@ class Register extends React.Component {
           <Header as='h2' color='black' textAlign='center'>
             <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShlvg6mJvj6VZKv46Ultcibd4Dah5vRo2LXA&usqp=CAU' alt='Woman on bike' /> Register
       </Header>
-          <Form inverted onSubmit={this.handleSubmit} size='large'>
+          <Form inverted size='large' onSubmit={this.handleSubmit} error={this.state.formErrorHandler}> {this.state.formErrorHandler ? (
+            <Message error header='Error' pointing= 'below' content='All fields required' />
+            ) : null }
             <Segment inverted stacked>
               <Form.Input fluid icon='user' iconPosition='left'
                 placeholder='Username'
