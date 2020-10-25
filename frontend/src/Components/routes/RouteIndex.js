@@ -19,11 +19,9 @@ class RouteIndex extends React.Component {
   async componentDidMount() {
     const response = await getRoutes()
     this.setState({
-      routes: response.data,
-      borough: response.data.borough
+      routes: response.data
     })
-    console.log('data', response)
-    console.log('>>>>>', response.borough)
+    console.log('data>>>>>>>>', response)
   }
 
   // handleChange = (e) => {

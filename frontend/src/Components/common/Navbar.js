@@ -85,7 +85,7 @@ class Navbar extends React.Component {
               as={Link}
               to={'/userprofile'}
             />
-          }
+            }
       {isAuthenticated() &&
           <Menu.Item
             name='logout'
@@ -94,7 +94,7 @@ class Navbar extends React.Component {
             as={Link}
             to={'/'}
           />
-          }
+            }
         </Menu>
       </Segment>
     )
