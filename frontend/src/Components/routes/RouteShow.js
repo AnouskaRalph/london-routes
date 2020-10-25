@@ -5,7 +5,7 @@ import { Card, Image } from 'semantic-ui-react'
 
 const RouteShow = (props) => {
 
-  const { _id, image, stops, miles, borough, difficulty } = props
+  const { image, stops, miles, borough, difficulty } = props
 
   return (
 

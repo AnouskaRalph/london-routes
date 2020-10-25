@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
-import { getRoutes, getRoutesFiltered } from '../../lib/api'
+import { getRoutes } from '../../lib/api'
 import RouteShow from '../routes/RouteShow'
   
 const options = [

@@ -48,7 +48,7 @@ handleSubmit = async (e) => {
     return (
 <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='black' textAlign='center'>
+      <Header as='h2' color='#32612D' textAlign='center'>
         <Image src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShlvg6mJvj6VZKv46Ultcibd4Dah5vRo2LXA&usqp=CAU' /> Log-in to your account
       </Header>
       <Form onSubmit={this.handleSubmit} size='large'>

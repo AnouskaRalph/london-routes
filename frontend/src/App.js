@@ -16,7 +16,6 @@ class App extends React.Component {
     try {
       const response = await fetch('/api/routes')
       const data = await response.json()
-      // console.log(data)
     } catch (err) {
       console.log(err)
     }

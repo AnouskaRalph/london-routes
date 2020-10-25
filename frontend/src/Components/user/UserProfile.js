@@ -2,20 +2,17 @@ import React from 'react'
 import { getUserProfile } from '../../lib/api'
 import {
   Container,
-  Divider,
-  Dropdown,
-  Grid,
   Header,
   Image,
-  List,
-  Menu,
-  Segment,
 } from 'semantic-ui-react'
 
 
 class UserProfile extends React.Component {
   state = {
-    profileData: null
+    profileData: {
+      username: '', 
+      profile_image: ''
+    }
   }
   async componentDidMount() {
     const response = await getUserProfile()
@@ -27,16 +24,12 @@ class UserProfile extends React.Component {
   }
 
   render () {
+    const { username, profile_image } = this.state.profileData
     return (
       <div>  
       <Container text style={{ marginTop: '7em' }}>
-    <Header as='h1'></Header>
-        <p>This is a basic fixed menu template using fixed size containers.</p>
-        <p>
-          A text container is used for the main container, which is useful for single column layouts.
-        </p>
-  
-        <Image src='/images/wireframe/media-paragraph.png' style={{ marginTop: '2em' }} />
+    <Header as='h1'>{username}</Header>  
+        <Image src={profile_image} style={{ marginTop: '2em' }} />
         <Image src='/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
         <Image src='/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
         <Image src='/images/wireframe/paragraph.png' style={{ marginTop: '2em' }} />
