@@ -13,6 +13,9 @@ export const loginUser = (formData) => {
 export const getRoutes = () => {
   return axios.get('./api/routes')
 }
+export const getSingleRoute = (route_id) => {
+  return axios.get(`/api/routes/${route_id}`)
+}
 
 function withHeaders(){
   return {
@@ -29,13 +32,15 @@ export const getUserProfile = () => {
 }
 
 
+
 export const addFavorites = (route) => {
   console.log('ROUTEEE FAV>>', route)
-  return axios.post('/api/favorites', {route}, withHeaders())
+  return axios.post('/api/favorites/', route, withHeaders())
 }
+
 export const getAllFavorites = (route) => {
   console.log('Getting favorites>>', route)
-  return axios.get('/api/favorites', {route}, withHeaders())
+  return axios.get('/api/favorites', route, withHeaders())
 }
 
 export const removeFavorites = (_id) => {

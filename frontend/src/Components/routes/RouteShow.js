@@ -1,100 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Card, Button, Popup } from 'semantic-ui-react'
+import {  getSingleRoute } from '../../lib/api'
 
+class RouteShow extends Component {
+  state = {
+    route: null
+  }
 
-const RouteShow = (props) => {
+async componentDidMount() {
+  const route_id = this.props.match.params.id
+  const response = await getSingleRoute(route_id)
+  
+  this.setState({
+    route: response.data
+  })
+}
 
-  const { stops, miles, borough, difficulty } = props
-
+render() {
+  const { stops, miles, borough, difficulty } = this.props
+  console.log(this.props)
   return (
-    <>
-      <Card>
-        <div id='parks-card-img' className='home-card-imgs'></div>
-        <Card.Content>
-          <Card.Header>{borough}</Card.Header>
-          <Card.Description>
-            Miles: {miles}
-          </Card.Description>
-          <Card.Description>
-            Stops: {stops}
-          </Card.Description>
-          <Card.Description>
-            Difficulty: {difficulty}
-          </Card.Description>
-          <Popup
-            trigger={<Button icon='add' />}
-            content='Save route'
-            inverted
-          />
-        </Card.Content>
-      </Card>
-    </>
-  )
+    <Card>
+    <div id='parks-card-img' className='home-card-imgs'></div>
+    <Card.Content>
+      <Card.Header>{borough}</Card.Header>
+      <Card.Description>
+        Miles: {miles}
+      </Card.Description>
+      <Card.Description>
+        Stops: {stops}
+      </Card.Description>
+      <Card.Description>
+        Difficulty: {difficulty}
+      </Card.Description>
+
+      <Popup
+        trigger={<Button icon='add'
+        onClick={this.handleClick} />}
+        content='Save route'
+        inverted
+      />
+    </Card.Content>
+  </Card>
+  ) 
+}
+
+
 }
 
 export default RouteShow
-
-
-
-// import React from 'react'
-// // import { Link } from 'react-router-dom'
-// import { Card, Image, Button, Popup, Icon } from 'semantic-ui-react'
-// import { checkIsUser, isAuthenticated, isUser } from '../../lib/auth' 
-// import { getRoutes } from '../../lib/api'
-
-// class RouteShow extends React.Component {
-//     state = {
-//       routes:  {
-//         image: '', 
-//         stops: '',
-//         miles: '', 
-//         borough: '',
-//         difficulty: ''
-//       }
-//     }
-
-//     // authenticated() {
-//     //   return isAuthenticated()
-//     // }
-
-//     async componentDidMount() {
-//       const response = await getRoutes()
-//       this.setState({
-//         routes: response.data,
-//       })
-//       console.log('1111data', response)
-
-//     }
-
-//   render () {
-//     if (!this.state.routes) return null
-//     const { image, stops, miles, borough, difficulty } = this.state
-//     return (
-//       <Card>
-//         <Image src={image} wrapped ui={false} />
-//         <Card.Content>
-//           <Card.Header>{borough}</Card.Header>
-//           <Card.Meta>
-//             <span className='date'>{stops}</span>
-//             </Card.Meta>
-//             <Card.Description>
-//               {miles}
-//               {difficulty}
-//             </Card.Description>
-//         {isUser() && isAuthenticated() &&
-//             <Popup
-//           trigger={<Button icon='add' />}
-//           content='Save route'
-//           inverted
-//         /> }
-//             {/* <Popup
-//           trigger={<Button icon='add' />}
-//           content='To save route please register'
-//           inverted
-//         /> */}
-//           </Card.Content>
-//         </Card>
-//     )
-//   }
-// } 
-// export default RouteShow

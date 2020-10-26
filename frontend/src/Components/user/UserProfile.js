@@ -26,7 +26,6 @@ class UserProfile extends React.Component {
 
   render () {
     const { username, profile_image, favorite_routes} = this.state.profileData
-    console.log('HERE1>>>', favorite_routes)
     return (
       <div>  
     <Container text style={{ marginTop: '7em' }}>
@@ -37,12 +36,15 @@ class UserProfile extends React.Component {
     <Container text style={{ marginTop: '7em' }}>
     <Header as='h1'>Saved Routes</Header> 
     </Container>
+
+    <Container text style={{ marginTop: '7em' }}>
     { favorite_routes && favorite_routes.map(route => (
           <UserFavorites
             key={route.id}
               {...route} />
               ))
               }
+    </Container>
     </div>
     )
   }  

@@ -11,17 +11,18 @@ import UserProfile from './Components/user/UserProfile'
 
 import RouteIndex from './Components/routes/RouteIndex'
 import RouteDirections from './Components/routes/RouteDirections'
+import RouteShow from './Components/routes/RouteShow'
 
 
 class App extends React.Component {
-  async componentDidMount() {
-    try {
-      const response = await fetch('/api/routes')
-      const data = await response.json()
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  // async componentDidMount() {
+  //   try {
+  //     const response = await fetch('/api/routes')
+  //     const data = await response.json()
+  //   } catch (err) {
+  //     console.log(data)
+  //   }
+  // }
 
   render() {
     return (
@@ -33,6 +34,7 @@ class App extends React.Component {
           <Route exact path='/login' component={Login} />
           <Route exact path='/routeindex' component={RouteIndex} />
           <Route exact path='/routedirections' component={RouteDirections} />
+          <Route exact path='/routeshow/:id' component={RouteShow} />
           <Route exact path='/userprofile' component={UserProfile} />
         </Switch>
       </BrowserRouter>

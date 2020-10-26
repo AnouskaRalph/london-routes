@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Container, Header } from 'semantic-ui-react'
 import { getRoutes } from '../../lib/api'
-import RouteShow from '../routes/RouteShow'
+import RouteCard from './RouteCard'
 
 const options = [
   { key: 'tooting', text: 'Tooting', value: 'tooting' },
@@ -76,7 +76,7 @@ class RouteIndex extends React.Component {
                 />
               </Form.Group>
             </Form>
-            {this.state.routes.map(route => (<RouteShow key={route.id}  {...route} />))}
+            {this.state.routes.map(route => (<RouteCard key={route.id}  {...route} />))}
           </Container>
         </div>
       </>

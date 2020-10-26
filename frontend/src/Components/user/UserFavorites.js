@@ -6,8 +6,6 @@ const UserFavorites = ({ route: { image, borough, miles, stops }}) => {
 return (
     <>
     <Card>
-      <Card.Description>WORKING
-        </Card.Description>
       <Card.Content>
         <Card.Header>{borough}</Card.Header>
         <Card.Description>{miles}
@@ -15,11 +13,10 @@ return (
         <Card.Description>
         {stops}
         </Card.Description>
-
       </Card.Content>
     </Card>
   </>
- )
+)
 }
   
   
