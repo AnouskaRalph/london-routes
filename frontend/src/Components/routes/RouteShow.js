@@ -3,22 +3,25 @@ import { Card, Button, Popup } from 'semantic-ui-react'
 import {  getSingleRoute } from '../../lib/api'
 
 class RouteShow extends Component {
-  state = {
-    route: null
+
+  constructor() {
+    super()
+
+    this.state = {}
   }
 
 async componentDidMount() {
-  const route_id = this.props.match.params.id
-  const response = await getSingleRoute(route_id)
-  
+  const routeid = this.props.match.params.id
+  const response = await getSingleRoute(routeid)
   this.setState({
     route: response.data
   })
 }
 
 render() {
-  const { stops, miles, borough, difficulty } = this.props
-  console.log(this.props)
+  if (!this.state.route) return null
+  const { stops, miles, borough, difficulty } = this.state.route
+  console.log('10 PROPS>>>', this.props)
   return (
     <Card>
     <div id='parks-card-img' className='home-card-imgs'></div>

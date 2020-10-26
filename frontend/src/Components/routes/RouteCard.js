@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card} from 'semantic-ui-react'
 import { addFavorites, getRoutes } from '../../lib/api'
 import { Link } from 'react-router-dom'
 
@@ -22,11 +22,11 @@ class RouteCard extends React.Component  {
   }
 
   render() {
-    const { _id, stops, miles, borough, difficulty } = this.props
-    console.log(this.props)
+    const { id, stops, miles, borough, difficulty } = this.props
+    // console.log(this.props)
     return (
       <>
-      <Link to={`/routeshow/${_id}`} >
+      <Link to={`/routeshow/${id}`} >
         <Card>
           <div id='parks-card-img' className='home-card-imgs'></div>
           <Card.Content>

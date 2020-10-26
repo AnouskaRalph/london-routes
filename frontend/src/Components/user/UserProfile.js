@@ -1,5 +1,5 @@
 import React from 'react'
-import { getUserProfile, getAllFavorites } from '../../lib/api'
+import { getUserProfile } from '../../lib/api'
 
 import {
   Container,

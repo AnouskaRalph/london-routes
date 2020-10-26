@@ -14,7 +14,9 @@ export const getRoutes = () => {
   return axios.get('./api/routes')
 }
 export const getSingleRoute = (route_id) => {
+  // console.log('ID HERE>>>>', route_id)
   return axios.get(`/api/routes/${route_id}`)
+  
 }
 
 function withHeaders(){
