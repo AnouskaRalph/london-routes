@@ -1,10 +1,10 @@
 import React from 'react'
-import { Card, Image, Button, Popup } from 'semantic-ui-react'
+import { Card, Button, Popup } from 'semantic-ui-react'
 
 
 const RouteShow = (props) => {
 
-  const { image, stops, miles, borough, difficulty } = props
+  const { stops, miles, borough, difficulty } = props
 
   return (
     <>

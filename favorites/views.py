@@ -4,13 +4,14 @@ from rest_framework import status
 
 from .models import Favorite
 from .serializers.common import FavoriteSerializer
+from .serializers.populated import PopulatedFavoriteSerializer
 from rest_framework.exceptions import NotFound
 
 class FavoriteListView(APIView):
 
     def get(self, _request):
         favorites_list = Favorite.objects.all()
-        serialized_favorites_list = FavoriteSerializer(favorites_list, many=True)
+        serialized_favorites_list = PopulatedFavoriteSerializer(favorites_list, many=True)
         return Response(serialized_favorites_list.data, status=status.HTTP_200_OK)
     
     def post(self, request):

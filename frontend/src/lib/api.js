@@ -33,6 +33,10 @@ export const addFavorites = (route) => {
   console.log('ROUTEEE FAV>>', route)
   return axios.post('/api/favorites', {route}, withHeaders())
 }
+export const getAllFavorites = (route) => {
+  console.log('Getting favorites>>', route)
+  return axios.get('/api/favorites', {route}, withHeaders())
+}
 
 export const removeFavorites = (_id) => {
   console.log('ID>>>>>>>', _id)

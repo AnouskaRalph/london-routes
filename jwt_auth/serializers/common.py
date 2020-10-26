@@ -23,8 +23,6 @@ class UserSerializer(serializers.ModelSerializer):
         data['password'] = make_password(password)
         return data
 
-
-
     class Meta:
         model = User
         fields = '__all__'
