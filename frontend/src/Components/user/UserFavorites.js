@@ -1,24 +1,29 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 
-const UserFavorites = ({ _id, favorite_routes: { route } }) => {
-  
-  return (
+const UserFavorites = ({ route: { image, borough, miles, stops }}) => {
+
+return (
     <>
     <Card>
+      <Card.Description>WORKING
+        </Card.Description>
       <Card.Content>
-        <Card.Header>{route}</Card.Header>
-        <Card.Description>
+        <Card.Header>{borough}</Card.Header>
+        <Card.Description>{miles}
         </Card.Description>
         <Card.Description>
+        {stops}
+        </Card.Description>
 
-        </Card.Description>
-        <Card.Description>
-        </Card.Description>
       </Card.Content>
     </Card>
   </>
-  )
+ )
 }
+  
+  
+  
+
 
 export default UserFavorites

@@ -21,7 +21,6 @@ class RouteIndex extends React.Component {
     this.setState({
       routes: response.data
     })
-    console.log('data>>>>>>>>', response)
   }
 
   // handleChange = (e) => {

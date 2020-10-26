@@ -13,8 +13,8 @@ class UserProfile extends React.Component {
     profileData: {
       username: '', 
       profile_image: ''
-  
-    }, favorite_routes: []
+    }, 
+    favorite_routes: []
   }
 
   async componentDidMount() {
@@ -37,11 +37,12 @@ class UserProfile extends React.Component {
     <Container text style={{ marginTop: '7em' }}>
     <Header as='h1'>Saved Routes</Header> 
     </Container>
-      {/* { this.state.favorite_route.map(favorite => (
+    { favorite_routes && favorite_routes.map(route => (
           <UserFavorites
-            key={route._id}
+            key={route.id}
               {...route} />
-              )) } */}
+              ))
+              }
     </div>
     )
   }  
