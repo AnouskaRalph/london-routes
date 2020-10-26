@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Container, Header } from 'semantic-ui-react'
+import { Form, Container, Header, Image } from 'semantic-ui-react'
 import { getRoutes } from '../../lib/api'
 import RouteCard from './RouteCard'
 
@@ -43,6 +43,7 @@ class RouteIndex extends React.Component {
       <>
         <div>
           <Container text style={{ marginTop: '2em' }}>
+          
             <Header as='h1'>Find your route</Header>
             <Form>
               <Form.Group inline>

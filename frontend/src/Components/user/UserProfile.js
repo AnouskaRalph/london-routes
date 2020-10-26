@@ -5,6 +5,7 @@ import {
   Container,
   Header,
   Image,
+  Segment
 } from 'semantic-ui-react'
 import UserFavorites from './UserFavorites'
 
@@ -28,6 +29,7 @@ class UserProfile extends React.Component {
     const { username, profile_image, favorite_routes} = this.state.profileData
     return (
       <div>  
+    <Segment style={{ padding: '8em 0em' }} vertical id='features'>
     <Container text style={{ marginTop: '7em' }}>
       <Header as='h1'>{username}</Header>  
       <Image src={profile_image} style={{ marginTop: '2em' }} />
@@ -45,6 +47,7 @@ class UserProfile extends React.Component {
               ))
               }
     </Container>
+    </Segment>
     </div>
     )
   }  

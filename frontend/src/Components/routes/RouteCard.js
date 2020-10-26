@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card} from 'semantic-ui-react'
-import { addFavorites, getRoutes } from '../../lib/api'
+import { Card, Image } from 'semantic-ui-react'
+import { getRoutes } from '../../lib/api'
 import { Link } from 'react-router-dom'
 
 
@@ -16,19 +16,17 @@ class RouteCard extends React.Component  {
     })
   }
 
-  handleClick = async (e) => {
-    await addFavorites(this.props.route)
-    console.log('clicked')
-  }
+
 
   render() {
-    const { id, stops, miles, borough, difficulty } = this.props
+    const { id, image, stops, miles, borough, difficulty } = this.props
     // console.log(this.props)
     return (
       <>
       <Link to={`/routeshow/${id}`} >
         <Card>
           <div id='parks-card-img' className='home-card-imgs'></div>
+          <Image src={image} style={{ marginTop: '2em' }} />
           <Card.Content>
             <Card.Header>{borough}</Card.Header>
             <Card.Description>

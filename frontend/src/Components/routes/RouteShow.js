@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Card, Button, Popup } from 'semantic-ui-react'
-import {  getSingleRoute } from '../../lib/api'
+import { Card, Button, Popup, Image, Segment, Grid, Header } from 'semantic-ui-react'
+import {  getSingleRoute, addFavorites } from '../../lib/api'
 
 class RouteShow extends Component {
 
@@ -18,14 +18,26 @@ async componentDidMount() {
   })
 }
 
+handleClick = async (e) => {
+  const routeid = this.props.match.params.id
+  await addFavorites(routeid)
+
+}
+
 render() {
   if (!this.state.route) return null
-  const { stops, miles, borough, difficulty } = this.state.route
-  console.log('10 PROPS>>>', this.props)
+
+  const { image, stops, miles, borough, difficulty } = this.state.route
   return (
-    <Card>
-    <div id='parks-card-img' className='home-card-imgs'></div>
+    <>
+
+    <Segment style={{ padding: '8em 0em' }} vertical id='features'>
+        <Grid container stackable verticalAlign='middle'>
+          <Grid.Row>
+          <Card>
+      <Image src={image} style={{ marginTop: '2em' }} />
     <Card.Content>
+    
       <Card.Header>{borough}</Card.Header>
       <Card.Description>
         Miles: {miles}
@@ -36,7 +48,6 @@ render() {
       <Card.Description>
         Difficulty: {difficulty}
       </Card.Description>
-
       <Popup
         trigger={<Button icon='add'
         onClick={this.handleClick} />}
@@ -45,6 +56,11 @@ render() {
       />
     </Card.Content>
   </Card>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+    
+  </>
   ) 
 }
 
