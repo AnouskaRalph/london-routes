@@ -3,11 +3,11 @@
   "model": "routes.route",
   "pk": 1,
   "fields": {
-    "borough": "Brixton",
+    "borough": "Regent's Canal",
     "miles": 30,
-    "difficulty": "easy",
-    "image": "testing",
-    "stops": "2",
+    "difficulty": "Easy",
+    "image": "https://london.cyclestreets.net/location/151806/cyclestreets151806.jpg",
+    "stops": "",
     "owner": 1
   }
 },
@@ -15,11 +15,11 @@
   "model": "routes.route",
   "pk": 1,
   "fields": {
-    "borough": "TEST",
-    "miles": 30,
+    "borough": "Little Venice",
+    "miles": 10,
     "difficulty": "easy",
-    "image": "testing",
-    "stops": "2",
+    "image": "https://london.cyclestreets.net/location/113873/cyclestreets113873.jpg",
+    "stops": "4",
     "owner": 1
   }
 },
@@ -27,11 +27,11 @@
   "model": "routes.route",
   "pk": 2,
   "fields": {
-    "borough": "Tooting",
-    "miles": 30,
-    "difficulty": "easy",
-    "image": "testing",
-    "stops": "2",
+    "borough": "Battersea Park to Greenwich",
+    "miles": 10,
+    "difficulty": "Meduim",
+    "image": "https://media.timeout.com/images/103943503/750/422/image.jpg",
+    "stops": "Packed full of highlights – the London Eye, the Globe, Tate Modern – the journey combines quieter roads with traffic-free paths, letting you sightsee to your heart’s content.",
     "owner": 1
   }
 },
@@ -39,11 +39,11 @@
   "model": "routes.route",
   "pk": 3,
   "fields": {
-    "borough": "Tulse Hill",
-    "miles": 30,
-    "difficulty": "easy",
-    "image": "testing",
-    "stops": "2",
+    "borough": "Limehouse Basin to London Fields",
+    "miles": 3.7,
+    "difficulty": "Easy",
+    "image": "https://media.timeout.com/images/103943495/750/422/image.jpg",
+    "stops": "This not-so-loved stretch of Regent’s Canal – which means less people to dodge on the towpath – takes in three of east London’s parks. At Limehouse",
     "owner": 1
   }
 },
@@ -51,11 +51,35 @@
   "model": "routes.route",
   "pk": 4,
   "fields": {
-    "borough": "Herne Hill",
+    "borough": "Big Ben to Richmond Park loop",
     "miles": 30,
-    "difficulty": "easy",
-    "image": "testing",
-    "stops": "2",
+    "difficulty": "Hard",
+    "image": "https://media.timeout.com/images/103943496/750/422/image.jpg",
+    "stops": "Take a right-of-passage risk with a brisk loop around one of London’s favourite cycling spots. Starting on Cycle Superhighway 8 from Westminster to Wandsworth",
+    "owner": 1
+  }
+}, 
+{
+  "model": "routes.route",
+  "pk": 3,
+  "fields": {
+    "borough": "Limehouse Basin to London Fields",
+    "miles": 3.7,
+    "difficulty": "Easy",
+    "image": "https://media.timeout.com/images/103943495/750/422/image.jpg",
+    "stops": "This not-so-loved stretch of Regent’s Canal – which means less people to dodge on the towpath – takes in three of east London’s parks.",
+    "owner": 1
+  }
+},
+{
+  "model": "routes.route",
+  "pk": 4,
+  "fields": {
+    "borough": "Olympic Park to Wanstead Flats",
+    "miles": 30,
+    "difficulty": "Easy",
+    "image": "https://media.timeout.com/images/103943494/750/422/image.jpg",
+    "stops": "The beauty of this ride is in the bookends (the less said about the bit between the destinations, the better). First, start off in the mighty Olympic Village.",
     "owner": 1
   }
 }

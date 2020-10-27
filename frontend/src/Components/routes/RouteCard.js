@@ -16,11 +16,8 @@ class RouteCard extends React.Component  {
     })
   }
 
-
-
   render() {
     const { id, image, stops, miles, borough, difficulty } = this.props
-    // console.log(this.props)
     return (
       <>
       <Link to={`/routeshow/${id}`} >

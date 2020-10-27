@@ -77,7 +77,7 @@ class Navbar extends React.Component {
             to={'/login'}
           />
           }
-          {checkIsUser() && isAuthenticated() &&
+          {isAuthenticated() &&
             <Menu.Item
               name='profile'
               active={activeItem === 'profile'}

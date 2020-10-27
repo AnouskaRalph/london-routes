@@ -2,32 +2,40 @@ import React, { Component } from 'react'
 import { Card, Button, Popup, Image, Segment, Grid, Header } from 'semantic-ui-react'
 import {  getSingleRoute, addFavorites } from '../../lib/api'
 
+
 class RouteShow extends Component {
 
-  constructor() {
-    super()
 
-    this.state = {}
+  state = {
+    id: '',
+    route: ''
   }
 
 async componentDidMount() {
-  const routeid = this.props.match.params.id
-  const response = await getSingleRoute(routeid)
+  const route_id = this.props.match.params.id
+  console.log('ROUTE ID HELLO >>>>>', route_id)
+  const response = await getSingleRoute(route_id)
+  console.log('RESPONSE HERE>>', response)
   this.setState({
-    route: response.data
+    route: response.data,
+    id: response.data.id
   })
+  console.log('DATA ID', response.data.id)
 }
 
 handleClick = async (e) => {
-  const routeid = this.props.match.params.id
-  await addFavorites(routeid)
-
+  const routeId = this.props.match.params.id
+  const response = await addFavorites({ route: routeId })
+  // await addFavorites(this.props.match.params.id)
+  console.log(response.data)
+  
 }
+
 
 render() {
   if (!this.state.route) return null
 
-  const { image, stops, miles, borough, difficulty } = this.state.route
+  const { id, image, stops, miles, borough, difficulty } = this.state.route
   return (
     <>
 
@@ -50,7 +58,9 @@ render() {
       </Card.Description>
       <Popup
         trigger={<Button icon='add'
-        onClick={this.handleClick} />}
+        onClick={this.handleClick}
+        id={id}
+        />}
         content='Save route'
         inverted
       />

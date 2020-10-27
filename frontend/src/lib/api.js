@@ -35,9 +35,9 @@ export const getUserProfile = () => {
 
 
 
-export const addFavorites = (route_id) => {
-  console.log('ROUTEEE FAV>>', route_id)
-  return axios.post('/api/favorites/', route_id, withHeaders())
+export const addFavorites = (id) => {
+  console.log('ADDING FAV, ID>>>', id)
+  return axios.post('/api/favorites/', id, withHeaders())
 }
 
 export const getAllFavorites = (route) => {
