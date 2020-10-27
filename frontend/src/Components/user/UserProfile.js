@@ -29,8 +29,8 @@ class UserProfile extends React.Component {
     const { username, profile_image, favorite_routes} = this.state.profileData
     return (
       <div>  
-    <Segment style={{ padding: '8em 0em' }} vertical id='features'>
-    <Container text style={{ marginTop: '7em' }}>
+    <Segment style={{ padding: '2em 0em' }} vertical id='features'>
+    <Container text style={{ marginTop: '5em' }}>
       <Header as='h1'>{username}</Header>  
       <Image src={profile_image} style={{ marginTop: '2em' }} />
     </Container>
