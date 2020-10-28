@@ -27,8 +27,8 @@ class RouteIndex extends React.Component {
   handleChange = (e) => {
     const filteredRoutes = this.state.routes.filter(route => route.difficulty === e.target)
     this.setState({ filteredRoutes })
-    // console.log('EVENT>>>>', e.target)
-    // console.log('FILTER ROUTES', filteredRoutes)
+    console.log('EVENT>>>>', e.target)
+    console.log('FILTER ROUTES', filteredRoutes)
   }  
 
 

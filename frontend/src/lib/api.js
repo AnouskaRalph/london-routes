@@ -10,6 +10,12 @@ export const loginUser = (formData) => {
   return axios.post('/api/auth/login/', formData )
 }
 
+export const getUserProfile = () => {
+  return axios.get('/api/auth/profile/', withHeaders())
+}
+
+//Routes
+
 export const getRoutes = () => {
   return axios.get('./api/routes')
 }
@@ -27,13 +33,8 @@ function withHeaders(){
   }
 }
 
-// USER & FAVORITES
 
-export const getUserProfile = () => {
-  return axios.get('/api/auth/profile/', withHeaders())
-}
-
-
+//Favorites
 
 export const addFavorites = (id) => {
   console.log('ADDING FAV, ID>>>', id)
@@ -48,6 +49,18 @@ export const getAllFavorites = (route) => {
 export const removeFavorites = (_id) => {
   console.log('ID>>>>>>>', _id)
   return axios.put(`api/profile/${_id}`, null, withHeaders())
+}
+
+//Comments
+
+export const addComment = (formData) => {
+  // console.log('ADDING COMMENT, ID>>>', formData)
+  return axios.post('/api/comments/', formData, withHeaders())
+}
+
+export const getAllComments = (route) => {
+  // console.log('Getting all comments>>', route)
+  return axios.get('/api/comments/', route, withHeaders())
 }
 
 

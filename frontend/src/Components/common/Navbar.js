@@ -2,7 +2,7 @@ import React from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
-import { isAuthenticated, checkIsUser, logout } from '../../lib/auth'
+import { isAuthenticated, logout } from '../../lib/auth'
 import { getUserProfile } from '../../lib/api'
 
 class Navbar extends React.Component {

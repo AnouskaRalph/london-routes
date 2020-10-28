@@ -4,8 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Segment, Message } from 'semantic-ui-react'
 
 import { loginUser } from '../../lib/api'
-import { setToken } from '../../lib/auth'
-
+import { setToken, isUser  } from '../../lib/auth'
 
 class Login extends React.Component {
 
@@ -32,6 +31,8 @@ handleSubmit = async (e) => {
   e.preventDefault()
   try {
     const response = await loginUser(this.state.formData)
+    setToken(response.data.token)
+    isUser(response.data.userID)
     this.setState({
       redirect: '/userprofile'
     })
