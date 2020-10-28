@@ -11,7 +11,8 @@ class JWTAuthentication(BasicAuthentication):
     def authenticate(self, request):
         header = request.headers.get('Authorization')
 
-        if not header:
+        # if not header:
+        if not header or header.startswith('Basic'):
             return None
 
         if not header.startswith('Bearer'):

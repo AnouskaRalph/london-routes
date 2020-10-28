@@ -14,7 +14,7 @@ class RouteIndex extends React.Component {
   state = {
     routes: null,
     difficulty: '',
-    borough: '', 
+    borough: '',
     filteredRoutes: null
   }
   async componentDidMount() {
@@ -22,14 +22,21 @@ class RouteIndex extends React.Component {
     this.setState({
       routes: response.data
     })
+    console.log(response)
   }
 
-  handleChange = (e) => {
-    const filteredRoutes = this.state.routes.filter(route => route.difficulty === e.target)
-    this.setState({ filteredRoutes })
-    console.log('EVENT>>>>', e.target)
+  handleChange = (e, { value }) => {
+    
+    const filteredRoutes = this.state.routes.filter(route => route.difficulty === value)
+    this.setState({
+      filteredRoutes,
+      value 
+
+    })
+    console.log('V>>>>', value)
     console.log('FILTER ROUTES', filteredRoutes)
-  }  
+  }
+  // handleChange = (e, { value }) => this.setState({ value })
 
 
   render() {
@@ -44,25 +51,26 @@ class RouteIndex extends React.Component {
               <Form.Group inline>
                 <label>Difficulty</label>
                 <Form.Radio
-                  label='easy'
-                  value='easy'
-                  checked={value === 'easy'}
+
+                  label='Easy'
+                  value='Easy'
+                  checked={value === 'Easy'}
                   onChange={this.handleChange}
                 />
                 <Form.Radio
-                  label='medium'
-                  value='medium'
-                  checked={value === 'medium'}
+                  label='Medium'
+                  value='Medium'
+                  checked={value === 'Medium'}
                   onChange={this.handleChange}
                 />
                 <Form.Radio
-                  label='hard'
-                  value='hard'
-                  checked={value === 'hard'}
+                  label='Hard'
+                  value='Hard'
+                  checked={value === 'Hard'}
                   onChange={this.handleChange}
                 />
               </Form.Group>
-              
+
               {/* <Form.Group widths='equal'>
                 <Form.Select
                   fluid
@@ -72,7 +80,7 @@ class RouteIndex extends React.Component {
                 />
               </Form.Group> */}
             </Form>
-            {this.state.filteredRoutes ? this.state.filteredRoutes : this.state.routes.map(route => (<RouteCard key={route.id}  {...route} />))}
+            {this.state.filteredRoutes ? this.state.filteredRoutes.map(route => (<RouteCard key={route.id}  {...route} />)) : this.state.routes.map(route => (<RouteCard key={route.id}  {...route} />))}
           </Container>
         </div>
       </>

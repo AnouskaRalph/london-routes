@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
 from .serializers.common import CommentSerializer
+from .serializers.populated import PopulatedCommentSerializer
 from .models import Comment
 
 class CommentListView(APIView):
@@ -19,6 +20,11 @@ class CommentListView(APIView):
             return Response(comment_to_create.data, status=status.HTTP_201_CREATED)
         return Response(comment_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
+    def get(self, _request):
+        comments_list = Comment.objects.all()
+        serialized_comments_list = PopulatedCommentSerializer(comments_list, many=True)
+        return Response(serialized_comments_list.data, status=status.HTTP_200_OK)
+
 class CommentDetailView(APIView):
 
     permission_classes = (IsAuthenticated, )
@@ -28,6 +34,11 @@ class CommentDetailView(APIView):
             return Comment.objects.get(pk=pk)
         except Comment.DoesNotExist:
             raise NotFound()
+    
+    def get(self, _request, pk):
+        comments = self.get_comments(pk=pk)
+        serialized_comments = CommentSerializer(comments)
+        return Response(serialized_comments.data, status=status.HTTP_200_OK)
 
     def is_comment_owner(self, comment , user):
         if comment.owner.id != user.id:

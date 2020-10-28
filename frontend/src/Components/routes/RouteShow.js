@@ -23,11 +23,11 @@ class RouteShow extends Component {
     const route_id = this.props.match.params.id
     // console.log('ROUTE ID HELLO >>>>>', route_id)
     const response = await getSingleRoute(route_id)
-    const { comments } = this.props
-    // console.log('RESPONSE HERE>>', response)
+    // const { comments } = this.state.data
+    console.log('COMMENTs HERE>>')
     this.setState({
       route: response.data,
-      id: response.data.id,
+      id: response.data.id
       // comments: comments
     })
   }
@@ -62,7 +62,7 @@ class RouteShow extends Component {
       // console.log('FORMDATA NEW>>>', formData)
       const response = await addComment(formData)
       const returnedComments = response.data.text
-      console.log('RETURNED COMMENTS>', returnedComments)
+      // console.log('RETURNED COMMENTS>', returnedComments)
       // const newComment = [...returnedComments]
       // console.log('NEW COMMENT', newComment)
       // if (isAuthenticated()) {
@@ -93,74 +93,74 @@ class RouteShow extends Component {
       return <Redirect to={this.state.redirect} />
     }
     return (
-    <>
-    <Segment style={{ padding: '8em 10em' }} vertical id='features'>
-        <Grid>
-        <Grid.Column
-          className='home-column-box'
-          floated='left'
-          width={7}
-        >
-    <Card>
-      <Image src={image} style={{ marginTop: '0em' }} />
-    <Card.Content>
-      <Card.Header>{borough}</Card.Header>
-      <Card.Description>
-        Miles: {miles}
-      </Card.Description>
-      <Card.Description>
-        Stops: {stops}
-      </Card.Description>
-      <Card.Description>
-        Difficulty: {difficulty}
-      </Card.Description>
-      <Popup
-        trigger={<Button icon='add'
-        onClick={this.handleClick}
-        id={id}
-        />}
-        content='Save route'
-        inverted
-      />
-    </Card.Content>
-  </Card>
-  <Button 
-  style={{ marginTop: '20px' }} 
-  size='large' 
-  icon='arrow alternate circle left'
-  as={Link}
-  to='/routeindex'
-  ></Button>
-          <div id='street-img' className='home-images'></div>
-        </Grid.Column>
-        <Grid.Column
-          className='home-column-box'
-          floated='right'
-          width={7}
-        >
-  <Comment.Group style={{ margin: '40px'}}>
-    <Header style={{  color: 'white' }} as='h3' dividing>
-      Comments
-    </Header>   
-    <Form onSubmit={this.handleSubmit}
-    reply>
-      <Form.TextArea
-      onChange={this.handleChange}
-      value={text}
-      />
-      <Button 
-      content='Leave a note' 
-      labelPosition='left' 
-      icon='edit' 
-      primary />
-      <p>{returnedComments}</p>
-    </Form>
-  </Comment.Group> 
-        </Grid.Column>
-      </Grid>
-      </Segment>
+      <>
+        <Segment style={{ padding: '8em 10em' }} vertical id='features'>
+          <Grid>
+            <Grid.Column
+              className='home-column-box'
+              floated='left'
+              width={7}
+            >
+              <Card>
+                <Image src={image} style={{ marginTop: '0em' }} />
+                <Card.Content>
+                  <Card.Header>{borough}</Card.Header>
+                  <Card.Description>
+                    Miles: {miles}
+                  </Card.Description>
+                  <Card.Description>
+                    Stops: {stops}
+                  </Card.Description>
+                  <Card.Description>
+                    Difficulty: {difficulty}
+                  </Card.Description>
+                  <Popup
+                    trigger={<Button icon='add'
+                      onClick={this.handleClick}
+                      id={id}
+                    />}
+                    content='Save route'
+                    inverted
+                  />
+                </Card.Content>
+              </Card>
+              <Button
+                style={{ marginTop: '20px' }}
+                size='large'
+                icon='arrow alternate circle left'
+                as={Link}
+                to='/routeindex'
+              ></Button>
+              <div id='street-img' className='home-images'></div>
+            </Grid.Column>
+            <Grid.Column
+              className='home-column-box'
+              floated='right'
+              width={7}
+            >
+              <Comment.Group style={{ margin: '40px' }}>
+                <Header style={{ color: 'white' }} as='h3' dividing>
+                  Comments
+                </Header>
+                <Form onSubmit={this.handleSubmit}
+                  reply>
+                  <Form.TextArea
+                    onChange={this.handleChange}
+                    value={text}
+                  />
+                  <Button
+                    content='Leave a note'
+                    labelPosition='left'
+                    icon='edit'
+                    primary />
+                  <p>{returnedComments}</p>
+                </Form>
+              </Comment.Group>
+            </Grid.Column>
+          </Grid>
+        </Segment>
 
-{/* {comments.map((comment, index) => {
+        {/* {comments.map((comment, index) => {
           return <SingleComment
             key={index}
             {...comment}
@@ -170,10 +170,10 @@ class RouteShow extends Component {
         })
     } */}
 
-    
 
-  </>
-  )
+
+      </>
+    )
   }
 }
 

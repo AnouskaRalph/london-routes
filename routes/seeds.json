@@ -17,7 +17,7 @@
   "fields": {
     "borough": "Little Venice",
     "miles": 10,
-    "difficulty": "easy",
+    "difficulty": "Easy",
     "image": "https://london.cyclestreets.net/location/113873/cyclestreets113873.jpg",
     "stops": "4",
     "owner": 1
@@ -29,7 +29,7 @@
   "fields": {
     "borough": "Battersea Park to Greenwich",
     "miles": 10,
-    "difficulty": "Meduim",
+    "difficulty": "Medium",
     "image": "https://media.timeout.com/images/103943503/750/422/image.jpg",
     "stops": "Packed full of highlights – the London Eye, the Globe, Tate Modern – the journey combines quieter roads with traffic-free paths, letting you sightsee to your heart’s content.",
     "owner": 1
