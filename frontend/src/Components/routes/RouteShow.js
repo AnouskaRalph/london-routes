@@ -23,12 +23,12 @@ class RouteShow extends Component {
     const route_id = this.props.match.params.id
     // console.log('ROUTE ID HELLO >>>>>', route_id)
     const response = await getSingleRoute(route_id)
-    // const { comments } = this.state.data
+    // const { comments } = this.state.comments
     console.log('COMMENTs HERE>>')
     this.setState({
       route: response.data,
       id: response.data.id
-      // comments: comments
+      // returnedComments: returnedComments
     })
   }
 
@@ -59,10 +59,10 @@ class RouteShow extends Component {
     const routeId = this.props.match.params.id
     try {
       const formData = { route: routeId, ...this.state.formData }
-      // console.log('FORMDATA NEW>>>', formData)
+      console.log('FORMDATA NEW>>>', formData)
       const response = await addComment(formData)
       const returnedComments = response.data.text
-      // console.log('RETURNED COMMENTS>', returnedComments)
+      console.log('RETURNED COMMENTS>>>', returnedComments)
       // const newComment = [...returnedComments]
       // console.log('NEW COMMENT', newComment)
       // if (isAuthenticated()) {
@@ -159,16 +159,18 @@ class RouteShow extends Component {
             </Grid.Column>
           </Grid>
         </Segment>
+        <Segment>
+          
+          {returnedComments.map((comment, index) => {
+            return <Comment
+              key={index}
+              {...comment}
+              routeId={this.props.routeId}>
+            </Comment>
+          })
+          }
+        </Segment>
 
-        {/* {comments.map((comment, index) => {
-          return <SingleComment
-            key={index}
-            {...comment}
-            routeId={this.props.routeId}
-            currentUserProfile={currentUserProfile}
-          />
-        })
-    } */}
 
 
 

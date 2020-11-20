@@ -6,11 +6,11 @@ class RouteDirections extends React.Component {
   }
 
 
-render () {
-  return (
-    <h1>directions</h1>
-  )
-}
+  render() {
+    return (
+      <h1>directions</h1>
+    )
+  }
 }
 
 export default RouteDirections

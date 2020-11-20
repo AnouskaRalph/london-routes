@@ -1,13 +1,7 @@
 import React from 'react'
-import { Form, Container, Header } from 'semantic-ui-react'
+import { Form, Container, Header, Button } from 'semantic-ui-react'
 import { getRoutes } from '../../lib/api'
 import RouteCard from './RouteCard'
-
-// const options = [
-//   { key: 'tooting', text: 'Tooting', value: 'tooting' },
-//   { key: 'brixton', text: 'Brixton', value: 'brixton' },
-//   { key: 'tulse hill', text: 'Tulse Hill', value: 'tulse hill' },
-// ]
 
 class RouteIndex extends React.Component {
 
@@ -26,17 +20,32 @@ class RouteIndex extends React.Component {
   }
 
   handleChange = (e, { value }) => {
-    
     const filteredRoutes = this.state.routes.filter(route => route.difficulty === value)
     this.setState({
       filteredRoutes,
-      value 
-
+      value
     })
     console.log('V>>>>', value)
     console.log('FILTER ROUTES', filteredRoutes)
   }
-  // handleChange = (e, { value }) => this.setState({ value })
+
+
+
+  // async getRoutes() {
+  //   const response = await getRoutes()
+  //   this.setState({
+  //     routes: response.data
+  //   })
+  // }
+  // handleChangeAllRoutes = (e, { this.routes }) => this.setState({ this.routes })
+  // handleChangeAllRoutes = (e, { value }) => {
+  //   const allRoutes = this.state.routes
+  //   this.setState({
+  //     allRoutes,
+  //     value
+  //   })
+  //   console.log('ALL', allRoutes)
+  // }
 
 
   render() {
@@ -50,8 +59,8 @@ class RouteIndex extends React.Component {
             <Form>
               <Form.Group inline>
                 <label>Difficulty</label>
+                {/* <Button size='mini'>All</Button> */}
                 <Form.Radio
-
                   label='Easy'
                   value='Easy'
                   checked={value === 'Easy'}
@@ -70,15 +79,6 @@ class RouteIndex extends React.Component {
                   onChange={this.handleChange}
                 />
               </Form.Group>
-
-              {/* <Form.Group widths='equal'>
-                <Form.Select
-                  fluid
-                  label='Area'
-                  options={options}
-                  placeholder='Area'
-                />
-              </Form.Group> */}
             </Form>
             {this.state.filteredRoutes ? this.state.filteredRoutes.map(route => (<RouteCard key={route.id}  {...route} />)) : this.state.routes.map(route => (<RouteCard key={route.id}  {...route} />))}
           </Container>
