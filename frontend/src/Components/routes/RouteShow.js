@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Card, Button, Popup, Image, Segment, Grid, Header, Comment, Form } from 'semantic-ui-react'
 import { getSingleRoute, addFavorites, addComment } from '../../lib/api'
-// import { isAuthenticated } from '../../lib/auth'
-import { Redirect } from 'react-router-dom'
-// import SingleComment from './SingleComment'
-import { Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import SingleComment from './SingleComment'
+
+
 
 class RouteShow extends Component {
 
@@ -21,15 +21,13 @@ class RouteShow extends Component {
 
   async componentDidMount() {
     const route_id = this.props.match.params.id
-    // console.log('ROUTE ID HELLO >>>>>', route_id)
     const response = await getSingleRoute(route_id)
-    // const { comments } = this.state.comments
-    console.log('COMMENTs HERE>>')
     this.setState({
       route: response.data,
-      id: response.data.id
-      // returnedComments: returnedComments
+      id: response.data.id,
+      comments: response.data.comments
     })
+    console.log('HEREEEEE', response.data.comments)
   }
 
   handleClick = async (e) => {
@@ -46,7 +44,6 @@ class RouteShow extends Component {
       console.log(err)
     }
   }
-
   handleChange = event => {
     const formData = {
       ...this.state.formData,
@@ -61,21 +58,10 @@ class RouteShow extends Component {
       const formData = { route: routeId, ...this.state.formData }
       console.log('FORMDATA NEW>>>', formData)
       const response = await addComment(formData)
-      const returnedComments = response.data.text
-      console.log('RETURNED COMMENTS>>>', returnedComments)
-      // const newComment = [...returnedComments]
-      // console.log('NEW COMMENT', newComment)
-      // if (isAuthenticated()) {
-      //   const resGetUser = await getUserProfile()
-      //   if (typeof (returnedComments[returnedComments.length - 1].user) === 'string') {
-      //     newComment[newComment.length - 1].user = {
-      //       username: resGetUser.data.username,
-      //       profile_image: resGetUser.data.userimage
-      //     }
-      //   }
-      // } 
+      const newComments = response.data.text
+      console.log('RETURNED COMMENTS>>>', newComments)
       this.setState({
-        comments: returnedComments,
+        comments: newComments,
         formData: ''
       })
     } catch (err) {
@@ -83,11 +69,15 @@ class RouteShow extends Component {
     }
   }
 
-
   render() {
     if (!this.state.route) return null
-    const { id, image, stops, miles, borough, difficulty } = this.state.route
-    const { text, returnedComments } = this.state
+    const {
+      id, image, stops, miles, borough,
+      difficulty,
+      text, comments } = this.state.route
+    const route_id = this.props.match.params.id
+
+
 
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
@@ -153,20 +143,18 @@ class RouteShow extends Component {
                     labelPosition='left'
                     icon='edit'
                     primary />
-                  <p>{returnedComments}</p>
                 </Form>
               </Comment.Group>
             </Grid.Column>
           </Grid>
         </Segment>
         <Segment>
-          
-          {returnedComments.map((comment, index) => {
-            return <Comment
-              key={index}
+          {comments.map((comment, id) => {
+            return <SingleComment
+              key={id}
               {...comment}
-              routeId={this.props.routeId}>
-            </Comment>
+              route_id={this.props.route_id}>
+            </SingleComment>
           })
           }
         </Segment>

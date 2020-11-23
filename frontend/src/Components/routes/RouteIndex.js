@@ -30,24 +30,6 @@ class RouteIndex extends React.Component {
   }
 
 
-
-  // async getRoutes() {
-  //   const response = await getRoutes()
-  //   this.setState({
-  //     routes: response.data
-  //   })
-  // }
-  // handleChangeAllRoutes = (e, { this.routes }) => this.setState({ this.routes })
-  // handleChangeAllRoutes = (e, { value }) => {
-  //   const allRoutes = this.state.routes
-  //   this.setState({
-  //     allRoutes,
-  //     value
-  //   })
-  //   console.log('ALL', allRoutes)
-  // }
-
-
   render() {
     const { value } = this.state
     if (!this.state.routes) return null
