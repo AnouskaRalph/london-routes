@@ -28,4 +28,4 @@ London-Routes is a full stack application that allows Londoners to explore bike 
 
 ### ERD
 
-![Wireframe Screenshot](./p3.png)
+![Wireframe Screenshot](./frontend/src/styles/assets/screeshotp4.png)
