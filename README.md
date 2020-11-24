@@ -26,6 +26,38 @@ London-Routes is a full stack application that allows Londoners to explore bike 
 
 - I spent the first chunk of time creating a wireframe and ERD, making sure I had a solid blueprint for this project. 
 
-### ERD
+### Wireframe 
 
 ![Wireframe Screenshot](./frontend/src/styles/assets/screeshotp4.png)
+
+### Backend
+- I started by building out the backend using Django / PostgreSQL. 
+
+###  Model 
+Different types of models created on the backend: 
+- User
+- Route
+- Comment
+- Direction
+
+Below is an example of an one-to-many model created or my comments. 
+```
+from django.db import models
+
+class Comment(models.Model):
+    text = models.TextField(max_length=150)
+    created_at = models.DateTimeField(auto_now_add=True)
+    route = models.ForeignKey(
+        'routes.Route',
+        related_name="comments",
+        on_delete=models.CASCADE
+    )
+    owner = models.ForeignKey(
+        'jwt_auth.User',
+        related_name="posted_comments",
+        on_delete=models.CASCADE, 
+    )
+    def __str__(self):
+        return f'Comment - {self.id} on Routes - {self.routes}'
+
+```
