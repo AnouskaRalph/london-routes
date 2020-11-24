@@ -61,3 +61,11 @@ class Comment(models.Model):
         return f'Comment - {self.id} on Routes - {self.routes}'
 
 ```
+###  Challenges 
+
+- I spent a lot of time getting the backend fully functioning and tested as I went, I found creating the correct relationships a challenged due to nesting / populating the correct models. 
+- The time aspect of this project was also something I had to consider due to this I am still working on the frontend aspect now that I am happy with the backend functionality.
+
+###  Future features 
+
+- I am currently working on my comment functionality of this project. 
