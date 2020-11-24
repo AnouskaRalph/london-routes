@@ -2,7 +2,7 @@
 
 London-Routes is a full stack application that allows Londoners to explore bike routes throughout the city. Users can browse different routes, add them to their profile and leave comments. 
 
-![Wireframe Screenshot](./p3homepage.png)
+![Wireframe Screenshot](frontend/src/styles/assets/Screenshot4hp.png)
 
 ### Goal and timeframe 
 
