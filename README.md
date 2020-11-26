@@ -24,11 +24,17 @@ London-Routes is a full stack application that allows Londoners to explore bike 
 
 ### Process
 
+- I created a Trello board to keep track of daily tasks, any bugs, and wins for the day. I would assess this every morning to see if I was on track for the MVP
 - I spent the first chunk of time creating a wireframe and ERD, making sure I had a solid blueprint for this project. 
 
 ### Wireframe 
 
 ![Wireframe Screenshot](./frontend/src/styles/assets/screeshotp4.png)
+
+###  ERD Diagram 
+
+![Wireframe Screenshot](frontend/src/styles/assets/ERD.png)
+
 
 ### Backend
 - I started by building out the backend using Django / PostgreSQL. 
@@ -39,10 +45,6 @@ Different types of models created on the backend:
 - Route
 - Comment
 - Direction
-
-###  ERD Diagram 
-
-![Wireframe Screenshot](frontend/src/styles/assets/ERD.png)
 
 
 Below is an example of an one-to-many model created or my comments. 
