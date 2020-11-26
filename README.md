@@ -40,6 +40,12 @@ Different types of models created on the backend:
 - Comment
 - Direction
 
+###  ERD Diagram 
+
+![Wireframe Screenshot]()
+
+
+
 Below is an example of an one-to-many model created or my comments. 
 ```
 from django.db import models
@@ -66,6 +72,18 @@ class Comment(models.Model):
 - I spent a lot of time getting the backend fully functioning and tested as I went, I found creating the correct relationships a challenged due to nesting / populating the correct models. 
 - The time aspect of this project was also something I had to consider due to this I am still working on the frontend aspect now that I am happy with the backend functionality.
 
+###  Wins
+- A huge win for this project was developing the backend: creating the ERD and models, working with different data types, seeing it function on the frontend. 
+- Implementing the comment functionality and getting the right data model on the backend. 
+
+###  Reflection & Key Learning
+
+- Creating a fullstack web application from scatch was a great learning curve in problem solving, backend development and frontend implementation. 
+- Using a Django Rest Framework and serializers to convert model data to JSON.
+- Using a Model-Template-View framework to structure my codebase on the back-end.
+
 ###  Future features 
 
 - I am currently working on my comment functionality of this project. 
+- Image upload for user profile and routes. 
+- Deleting comments 
