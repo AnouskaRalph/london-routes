@@ -42,8 +42,7 @@ Different types of models created on the backend:
 
 ###  ERD Diagram 
 
-![Wireframe Screenshot]()
-
+![Wireframe Screenshot](frontend/src/styles/assets/ERD.png)
 
 
 Below is an example of an one-to-many model created or my comments. 
